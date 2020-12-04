@@ -1,9 +1,9 @@
 # vpp-event-viewer
 
 This repo contains a vpp live data event viewer plugin x86_64 Debian
-package. The plugin should work with vpp master/latest images built on
-or after 12/1/2020, and eventually with vpp 21.01 (or later)
-production images.
+package. Also included: a standalone ubuntu-20.04 binary.The plugin
+should work with vpp master/latest images built on or after 12/1/2020,
+and eventually with vpp 21.01 (or later) production images.
 
 ## Installation
 
@@ -32,7 +32,7 @@ debug CLI:
 The vpp event viewer plugin should start, and pop up a window which looks
 a lot like this:
 
-<img src="images/first.png" >
+<img src="images/plugin.png" >
 
 If that works, great! The live event viewer plugin has been
 installed. If not, see if the plugin loaded:
@@ -52,6 +52,29 @@ Undefined symbols are the most common reason that a plugin will refuse
 to load. If that happens, it's likely that the installed version of vpp
 is too old. Update the workspace from master/latest and try again.
 
+## G2 Standalone Viewer
+
+The standalone g2 viewer g2-standalone-ubuntu-20-04 is identical to
+the plugin viewer, except that it does not support shared-memory
+access to the vpp event log.
+
+After installing the listed dependencies, run the viewer:
+
+```text
+   $ g2-standalone-ubuntu-20-04 [file <filename>]
+```
+
 ## Using the GUI
 
-Work in progress... (:-)...
+Here is an annotated G2 viewer screenshot, corresponding to a test pattern.
+
+<img src="images/stand2.png" >
+
+The viewer has two main scrollbars: the horizontal axis scrollbar
+shifts the main drawing area in time; the vertical axis changes the
+set of visible process traces.  The zoomin / zoomout operators change
+the time scale.
+
+The event selector menu changes the set of displayed events.  Using
+these tools -- and some patience -- you can understand a given event
+log.
