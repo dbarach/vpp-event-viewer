@@ -78,3 +78,25 @@ the time scale.
 The event selector menu changes the set of displayed events.  Using
 these tools -- and some patience -- you can understand a given event
 log.
+
+
+### Mouse Gestures
+
+The viewer has three fairly sophisticated mouse gesture interfaces,
+which are worth describing in detail. First, a left mouse click on an
+event pops up a per-event detail box. See above ("Event Details" /
+"Events (track 1)"), "0: t1 event 38".
+
+A left mouse click on an event detail box closes it.
+
+To zoom to a region of the display, press and hold the left mouse
+button, then drag right or left until the zoom-fence pair appears:
+
+<img src="images/zoomfence.png">
+
+When the zoom operation completes, the display is as follows:
+
+<img src="images/postzoom.png">
+
+To measure the time between two points on the display, press and hold
+the right mouse button.
