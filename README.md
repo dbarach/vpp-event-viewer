@@ -99,4 +99,31 @@ When the zoom operation completes, the display is as follows:
 <img src="images/postzoom.png">
 
 To measure the time between two points on the display, press and hold
-the right mouse button.
+the right mouse button; drag right or left until the time ruler
+measures the region of interest.
+
+If the time axis scale is coarse, single pixels can have significant
+width in time. It's always a good idea to pick a reference location in
+event boxes (e.g. left edge or right edge) when using the time ruler.
+
+### Event Selector
+
+The Event Selector enables or disables display of specific events. For
+convenience, the event selector can disable or enable all events by
+pressing the indicated buttons.
+
+### Snapshots / Saved Views
+
+Three buttons in lower left-hand corner of the viewer window control
+the snapshot ring. Snapshots are simply saved views: maneuver the
+viewer into an "interesting" configuration, then press the "Snap"
+button to add a snapshot to the ring.
+
+Click "Next" to restore the next available snapshot. The "Del" button
+deletes the current snapshot.
+
+See the hotkey section below for access to a quick and easy method to
+save and restore the snapshot ring.
+
+It's typical to set up a number of snapshots when making a set of
+screenshots to explain a performance issue.
