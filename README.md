@@ -20,10 +20,20 @@ so on. The Debian package in this repo has the following dependencies:
 
 ## Invocation
 
-To start the live viewer, start vpp and use the following
-debug CLI:
+The GTK community does not to support the use of gtk libraries in
+setuid() programs. Empirically, this means that one must start vpp
+from the command line in order to use the live data event viewer
+plugin.
+
+Attempting to start the viewer [via vppctl] when vpp runs as a service
+will cause vpp to restart. That's a bug, which I will take up with the
+gtk community. No ETA for a fix, of course.
+
+To start the live viewer, do this:
 
 ```text
+    $ sudo /usr/bin/vpp unix interactive ## or sudo gdb /usr/bin/vpp
+    ... messages ...
     vpp# event-logger viewer
        or
     vpp# eve v
