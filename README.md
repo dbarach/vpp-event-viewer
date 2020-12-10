@@ -127,3 +127,55 @@ save and restore the snapshot ring.
 
 It's typical to set up a number of snapshots when making a set of
 screenshots to explain a performance issue.
+
+### Adjusting placement of tracks on the track axis
+
+To swap the placement of two tracks on the track axis, "control-left
+mouse click" on the bottom track. Immediately clicking again inverts
+the operation
+
+To move a track to a specific location ("First Visible", "Last
+Visible", "First", or "Last), use "shift-left mouse click" and select
+the desired location from the radio button menu.
+
+Moving a track to the "Last" position is often used to "bury" an
+uninteresting track
+
+### Summary Mode
+
+Summary mode declutters the screen by rendering events as short
+vertical line segments instead of numbered boxes. Event detail display
+is unaffected. The viewer starts in summary mode, zoomed out
+sufficiently for all events in the trace to be displayed.  Given a
+large number of events, summary mode reduces initial screen-paint time
+to a tolerable value.
+
+Once you've zoomed in sufficiently, press the "NoSummary" button (or
+type the keyboard shortcut 'e') to enable boxed numeric event display.
+
+
+### Keyboard Shortcut Map
+
+The viewer supports a number of keyboard shortcuts
+
+| Key | Function |
+| --- | -------- |
+| d   |                Delete Snapshot  |
+| e   | Toggle Summary Mode |
+| g   | Dump view geometry parameters (debug) |
+| i   | Zoom In |
+| l   | Show Memory Leaks (debug) |
+| n   | Next Snapshot |
+| o   | Zoom Out |
+| q   | Quit |
+| s   | Make New Snapshot |
+| t   | Memory Leak Trace on/off toggle (debug) |
+
+### Mouse Gestures
+
+| Gesture | Function |
+| ------- | -------- |
+| Left Mouse down...move...release | Zoom to selected region |
+| Control Left Mouse click | Swap Tracks |
+| Shift Left Mouse click | Move Track (radio button menu) |
+| Right Mouse down...move | Time Ruler |
