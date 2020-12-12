@@ -20,23 +20,40 @@ so on. The Debian package in this repo has the following dependencies:
 
 ## Invocation
 
-The GTK community does not to support the use of gtk libraries in
-setuid() programs. Empirically, this means that one must start vpp
-from the command line in order to use the live data event viewer
-plugin.
+The GTK community objects to the use of the gtk libraries in setuid()
+programs, on security grounds. The live event data plugin deals with
+the situation and works with distro gtk-3/gdk-3 libraries anyway, but
+one might not want to enable it in a mission-critical production
+environment.
 
-Attempting to start the viewer [via vppctl] when vpp runs as a service
-will cause vpp to restart. That's a bug, which I will take up with the
-gtk community. No ETA for a fix, of course.
-
-To start the live viewer, do this:
+One specific detail which will prevent the live event viewer plugin
+from starting when vpp runs as a service: comment out the "gid vpp"
+stanza in the unix configuration portion of /etc/vpp/startup.conf:
 
 ```text
-    $ sudo /usr/bin/vpp unix interactive ## or sudo gdb /usr/bin/vpp
-    ... messages ...
+    unix {
+      ...
+      # gid vpp
+      ...
+    }
+```
+
+In this scenario, one must run vppctl as root. When running with the
+vpp service, the event log viewer forcibly sets DISPLAY to ":1". It's
+likely that you'll have to use "xhost +local:localhost" or some such
+to convince the x server to allow the connection.
+
+To start the live viewer:
+
+```text
+    # vppctl
     vpp# event-logger viewer
        or
     vpp# eve v
+   or
+    $ sudo /usr/bin/vpp unix interactive ## or sudo gdb /usr/bin/vpp
+    ... messages ...
+    vpp# event-logger viewer
 ```
 
 The vpp event viewer plugin should start, and pop up a window which looks
@@ -61,6 +78,14 @@ watch for undefined symbol complaints concerning the "g2" plugin.
 Undefined symbols are the most common reason that a plugin will refuse
 to load. If that happens, it's likely that the installed version of vpp
 is too old. Update the workspace from master/latest and try again.
+
+If the plugin loaded OK but the "event-logger viewer" command didn't
+yield a viewer window, check /var/log/syslog:
+
+```text
+    vpp[61923]: Unable to init server: Could not connect: Connection refused
+    vpp[61923]: Graphics initialization failed, check $DISPLAY...
+```
 
 ## G2 Standalone Viewer
 
