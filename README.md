@@ -1,9 +1,9 @@
 # vpp-event-viewer
 
 This repo contains a vpp live data event viewer plugin x86_64 Debian
-package. Also included: a standalone ubuntu-20.04 binary.The plugin
-should work with vpp master/latest images built on or after 12/1/2020,
-and eventually with vpp 21.01 (or later) production images.
+package. Also included: a standalone ubuntu-20.04 g2 Debian
+package. The plugin should work with vpp master/latest images built on
+or after 7/28/2021.
 
 ## Installation
 
@@ -96,7 +96,7 @@ access to the vpp event log.
 After installing the listed dependencies, run the viewer:
 
 ```text
-   $ g2-standalone-ubuntu-20-04 [file <filename>]
+   $ g2 [file <filename>]
 ```
 
 ## Using the GUI
