@@ -3,7 +3,7 @@
 This repo contains a vpp live data event viewer plugin x86_64 Debian
 package. Also included: a standalone ubuntu-20.04 g2 Debian
 package. The plugin should work with vpp master/latest images built on
-or after 7/28/2021.
+or after 7/21/2022, on Ubuntu 22.04.
 
 ## Installation
 
